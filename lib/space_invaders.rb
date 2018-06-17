@@ -6,17 +6,17 @@ class SpaceInvaders
 
 
   def check_radar_for_invaders(radar=get_default_radar)
-    radar_arr = radar.split("\n") # splitting radar image into array
+    radar_arr = radar.strip.split(/\s+/) # splitting radar image into array
     found_invaders = 0
     radar_arr.each_with_index do |item, index|
       @invaders.each do |invader|
         if item.include? invader[0] # checking if top part of invader is found
-          invader_top_coordinate = item.strip.index(invader[0]) # getting position of top part of invader
+          invader_top_coordinate = item.index(invader[0]) # getting position of top part of invader
           new_radar_arr = radar_arr.drop(index+1) # creating new radar array, by removing checked elements
           if new_radar_arr.size >= invader.size - 1 # checking if size of current array is larger or equal to invader size
             found = true
             invader.drop(1).each_with_index do |in_part, j| # looping through invaders parts
-              if new_radar_arr[j].strip.index(in_part) != invader_top_coordinate #if coordinates of top part and current part don't match break loop
+              if new_radar_arr[j].index(in_part) != invader_top_coordinate #if coordinates of top part and current part don't match break loop
                 found = false
                 break
               end

@@ -2,15 +2,19 @@
 require 'test_helper'
 
 class SpaceInvadersTest < ActiveSupport::TestCase
-  test "Test default radar image" do
+  test "should return 0" do
     si = SpaceInvaders.new
-    assert_equal( 0, si.check_radar_for_invaders, "Nice! No invaders." )
+    assert_equal( 0, si.check_radar_for_invaders, "There should not be invaders." )
+    puts "Phew! There is not invaders."
   end
-  test "Test run radar image with invaders" do
+
+  test "should return greater the 0" do
     si = SpaceInvaders.new
-    assert_equal( 3, si.check_radar_for_invaders(example_test), "Nice! No invaders." )
+    assert_not_equal( 0, si.check_radar_for_invaders(example_radar_with_invaders), "There should be invaders." )
+    puts "OH no! Invaders are here."
   end
-  def example_test
+
+  def example_radar_with_invaders
     '---oo---o----o--ooo--ooo---------o---oo-o----oo---o--o---------o----o------o----------------o--o--o-
       --oooo----oooooooo-oooooo-------o----o------ooo-o---o--o----o------o--o---ooo-----o--oo-o------o----
       -oooooo----oo-ooo-oo-oo-oo------------------ooooo-----o-----o------o---o--o--o-o-o------o----o-o-o--
