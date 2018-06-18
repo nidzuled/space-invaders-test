@@ -1,24 +1,5 @@
-# README
+# Space Invaders Task
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+####Task is done in lib/space_invaders.rb
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### Simple tests are done Minitest test/lib/space_invaders_test.rb
